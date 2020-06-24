@@ -3,7 +3,7 @@ export const ADD_ITEM = "ADD_ITEM";
 export const add_item = (text, id) => {
   return {
     type: "ADD_ITEM",
-    item: { text, id },
+    item: { text, id, check: false },
   };
 };
 

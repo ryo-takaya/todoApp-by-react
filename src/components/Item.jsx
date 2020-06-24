@@ -11,16 +11,10 @@ import DeleteIcon from "@material-ui/icons/Delete";
 import Checkbox from "@material-ui/core/Checkbox";
 
 const Item = (props) => {
-  const checkedList = useSelector((store) => store.items.checkedList);
   const check = useRef(null);
   const dispatch = useDispatch();
-  console.log(checkedList);
+
   const deleteItem = (index) => {
-    if (checkedList.length) {
-      console.log("u");
-      dispatch(delete_several_items());
-      return;
-    }
     dispatch(delete_item(index));
   };
   const isCheckbox = (id) => {

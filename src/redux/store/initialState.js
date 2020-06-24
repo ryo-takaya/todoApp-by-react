@@ -1,5 +1,5 @@
 const initialState = {
-  items: { list: [], text: "", timeId: 0, checkedList: [] },
+  items: { list: [], text: "", timeId: 0 },
 };
 
 export default initialState;

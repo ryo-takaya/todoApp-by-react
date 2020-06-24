@@ -1,18 +1,17 @@
 import React, { useRef, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { add_item, change_text } from "../redux/items/action";
+import { add_item, delete_several_items } from "../redux/items/action";
 import TextField from "@material-ui/core/TextField";
 import Button from "@material-ui/core/Button";
 import shortid from "shortid";
 
 const Input = () => {
   const inputText = useRef(null);
-  const text = useSelector((store) => store.items.text);
-  const timeId = useSelector((store) => store.items.timeId);
 
   const dispatch = useDispatch();
-  const changeText = (e) => {
-    const target = e.target.value;
+
+  const deleteCheckedItem = () => {
+    dispatch(delete_several_items());
   };
   const addItem = (e) => {
     const target = inputText.current.value;
@@ -25,12 +24,7 @@ const Input = () => {
     <>
       <div className="inputContainer">
         <TextField
-          // value={text}
           inputRef={inputText}
-          onChange={(e) => {
-            changeText(e);
-          }}
-          // defaultValue={text === "" ? "" : text}
           id="filled-basic"
           label="TextFilled"
           variant="filled"
@@ -42,6 +36,14 @@ const Input = () => {
           color="primary"
         >
           ADD
+        </Button>
+        <Button
+          style={{ height: 45 }}
+          onClick={(e) => deleteCheckedItem(e)}
+          variant="contained"
+          color="primary"
+        >
+          DELETE CHECKED ITEM
         </Button>
       </div>
     </>

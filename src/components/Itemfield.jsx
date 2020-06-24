@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Item from "./Item";
-import shortid from "shortid";
 
 const Itemfield = () => {
   const items = useSelector((store) => store.items.list);
